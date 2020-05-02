@@ -14,6 +14,13 @@ class LayerDense:
         self.bias = np.zeros((1, n_neurons))
 
     def forward(self, inputs):
-        self.output = np.dot(inputs, self.weight) + self.bias
+        return np.dot(inputs, self.weight) + self.bias
 
 
+layer1 = LayerDense(4, 5)
+layer2 = LayerDense(5, 2)
+
+layer1_output = layer1.forward(X)
+layer2_output = layer2.forward(layer1_output)
+
+print(layer2_output)
