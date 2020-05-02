@@ -1,23 +1,19 @@
 import numpy as np
 
-inputs = [[1, 2.3, 4, 2.5],
-          [2, 3.7, 0.2, 4.3],
-          [1, 3.2, 2, 2.6]]
+np.random.seed(0)
 
-weights = [[2, 0.2, 5, 2],
-           [2.1, 2, 1.5, -2],
-           [2, 1.3, 5, 3.1]]
+X = [[1, 2.3, 4, 2.5],
+     [2, 3.7, 0.2, 4.3],
+     [1, 3.2, 2, 2.6]]
 
-biases = [0.2, 3, -2]
 
-weights2 = [[2, 0.2, 5],
-           [2.1, 2, 1.5],
-           [2, 1.3, 5]]
+class LayerDense:
 
-biases2 = [0.2, 3, -2]
+    def __init__(self, n_inputs, n_neurons):
+        self.weight = 0.10 * np.random.randn(n_inputs, n_neurons)
+        self.bias = np.zeros((1, n_neurons))
 
-layer1_outputs = np.dot(inputs, np.array(weights).T) + biases
+    def forward(self):
+        pass
 
-layer2_outputs = np.dot(layer1_outputs, weights2) + biases2
 
-print(layer2_outputs)
