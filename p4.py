@@ -13,7 +13,7 @@ class LayerDense:
         self.weight = 0.10 * np.random.randn(n_inputs, n_neurons)
         self.bias = np.zeros((1, n_neurons))
 
-    def forward(self):
-        pass
+    def forward(self, inputs):
+        self.output = np.dot(inputs, self.weight) + self.bias
 
 
