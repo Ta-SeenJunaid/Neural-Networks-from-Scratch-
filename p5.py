@@ -17,7 +17,7 @@ class LayerDense:
         return np.dot(inputs, self.weight) + self.bias
 
 
-def relu_activation(self, inputs):
+def relu_activation(inputs):
     return np.maximum(0,inputs)
 
 
@@ -25,6 +25,9 @@ layer1 = LayerDense(4, 5)
 layer2 = LayerDense(5, 2)
 
 layer1_output = layer1.forward(X)
-layer2_output = layer2.forward(layer1_output)
+layer1_activation_output = relu_activation(layer1_output)
 
-print(layer2_output)
+layer2_output = layer2.forward(layer1_activation_output)
+layer2_activation_output = relu_activation(layer2_output)
+
+print(layer2_activation_output)
