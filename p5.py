@@ -17,6 +17,10 @@ class LayerDense:
         return np.dot(inputs, self.weight) + self.bias
 
 
+def relu_activation(self, inputs):
+    return np.maximum(0,inputs)
+
+
 layer1 = LayerDense(4, 5)
 layer2 = LayerDense(5, 2)
 
