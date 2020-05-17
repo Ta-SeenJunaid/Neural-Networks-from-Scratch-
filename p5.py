@@ -1,10 +1,7 @@
 import numpy as np
+from data_file_1 import spiral_data
 
-np.random.seed(0)
-
-X = [[1, 2.3, 4, 2.5],
-     [2, 3.7, 0.2, 4.3],
-     [1, 3.2, 2, 2.6]]
+X, y = spiral_data(100, 3)
 
 
 class LayerDense:
@@ -21,13 +18,9 @@ def relu_activation(inputs):
     return np.maximum(0,inputs)
 
 
-layer1 = LayerDense(4, 5)
-layer2 = LayerDense(5, 2)
+layer1 = LayerDense(2, 5)
 
 layer1_output = layer1.forward(X)
 layer1_activation_output = relu_activation(layer1_output)
 
-layer2_output = layer2.forward(layer1_activation_output)
-layer2_activation_output = relu_activation(layer2_output)
-
-print(layer2_activation_output)
+print(layer1_activation_output)
